@@ -75,5 +75,12 @@ public class EmployeeController {
     public Result<String> logout() {
         return Result.success();
     }
+    @PostMapping
+    @ApiOperation("新增员工")
+    public Result save(@RequestBody Employee employee) {
+        log.info("新增员工: {}", employee);
+        employeeService.save(employee);
+        return Result.success();
+    }
 
 }
